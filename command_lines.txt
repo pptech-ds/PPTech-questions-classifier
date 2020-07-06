@@ -1,0 +1,97 @@
+google drive path:
+	cd '/mnt/c/Users/prasa/Google Drive'/
+	
+install pytorch wo conda:
+	conda install pytorch torchvision cpuonly -c pytorch
+	
+gcc:
+	sudo apt-get install gcc
+	
+	or to fix some other gcc issues
+	
+	sudo apt-get update
+	sudo apt-get install --reinstall build-essential
+	
+python packages to install under conda env:
+	numpy: 
+		conda install -c anaconda numpy 
+	pattern: 
+		git clone https://github.com/clips/pattern.git 
+		cd pattern 
+		python setup.py install 
+	pandas: 
+		conda install -c anaconda pandas 
+	spacy: 
+		conda install -c conda-forge spacy 
+		python -m spacy download en 
+		python -m spacy download de 
+		python -m spacy download fr 
+	nltk: 
+		conda install -c anaconda nltk 
+		after installation open python and download nltk sublibraries 
+			import nltk 
+			nltk.download('punkt') 
+	pathlib: 
+		conda install -c menpo pathlib 
+	openpyxl: 
+		conda install -c anaconda openpyxl 
+	beautifulsoup4: 
+		conda install -c anaconda beautifulsoup4 
+	scikit-learn: 
+		conda install -c anaconda scikit-learn
+	transformers:
+		pip install transformers
+		pip install sacremoses
+		pip install tensorboardX
+	rank_bm25:
+		pip install rank_bm25
+	fairseq
+		pip install fairseq
+	requests
+		pip install requests
+	sacremoses
+		pip install sacremoses
+	subword-nmt
+		pip install subword-nmt
+		
+
+	transformers
+		pip install pytorch-transformers
+		pip install tensorboardX
+	
+AWS:
+	AMI: 
+		VM_pras:				ssh -i "AWS_skillogs_paris.pem" ubuntu@ec2-35-180-152-207.eu-west-3.compute.amazonaws.com
+		API_pras:				ssh -i "AWS_skillogs_paris.pem" ubuntu@ec2-35-180-242-107.eu-west-3.compute.amazonaws.com
+		deep_learning:			ssh -i "AWS_skillogs_ireland.pem" ubuntu@ec2-34-245-217-114.eu-west-1.compute.amazonaws.com
+
+
+
+		VM with GUI: 			ssh -L 5902:localhost:5902 -i "AWS_skillogs_paris.pem" ubuntu@ec2-35-180-152-207.eu-west-3.compute.amazonaws.com
+								vncserver -geometry 1680x1050
+		
+		
+
+
+
+	AMI with GUI:
+		ssh -L 5902:localhost:5902 -i "AWS_skillogs_ireland.pem" ubuntu@ec2-15-188-52-164.eu-west-3.compute.amazonaws.com
+
+	SCP:
+		scp -r -p -i <pem_key> <source_path> <user>@<server2_ip>:<destination_path>
+		r for recursivity
+		p to keep dates of changes
+		i for identification
+
+RASA:
+	
+	http://localhost:5002/login?username=me&password=rjIvsGwxu40s
+	ec2-34-245-138-36.eu-west-1.compute.amazonaws.com:5002/login
+	
+	
+
+
+
+
+
+python ./qsc.py --model_type bert --model_name_or_path bert-base-uncased --task_name QSC --do_train --do_eval --do_lower_case --data_dir data/QSC --max_seq_length 512 --per_gpu_eval_batch_size=64 --per_gpu_train_batch_size=64 --learning_rate 2e-5 --num_train_epochs 1.0 --output_dir ./model_qsc
